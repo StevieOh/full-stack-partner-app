@@ -1,7 +1,7 @@
 {
   "name": "full-stack-partner-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "# Obeyims",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,8 +15,9 @@
   "bugs": {
     "url": "https://github.com/StevieOh/full-stack-partner-app/issues"
   },
-  "homepage": "https://github.com/StevieOh/full-stack-partner-app#readme",
+  "homepage": "https://github.com/gsims7-Chi/full-stack-partner-app#readme",
   "dependencies": {
+    "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
