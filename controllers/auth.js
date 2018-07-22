@@ -11,3 +11,28 @@ router.get('/',(req, res) => {
   message: req.session.message
  });
 });
+
+
+
+//===============================
+//        Login Route
+//===============================
+router.post('/login', (req, res) => {
+ User.findOne({username:req.body.username}, (err, user) => {
+   if(user){
+    if (bcrypt.compareSync(req.body.password, user.password)) {
+
+      req.session.username = user.username;
+      req.session.loggedIn = true;
+      res.redirect('newsfeed');
+
+    }else{
+      req.session.message = "Username or Password is incorrect"
+      res.redirect('/auth');
+    }//end of if(bcrypt)
+   }else{ 
+    req.session.message = "Username or passwordis incorrect"
+    res.redirect('/auth');
+   }//end of if(user)
+ }) 
+})
