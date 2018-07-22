@@ -31,8 +31,44 @@ router.post('/login', (req, res) => {
       res.redirect('/auth');
     }//end of if(bcrypt)
    }else{ 
-    req.session.message = "Username or passwordis incorrect"
+    req.session.message = "Username or password is incorrect"
     res.redirect('/auth');
    }//end of if(user)
  }) 
 })
+
+
+
+//===============================
+//     Hash Password Route
+//===============================
+router.post('/register', (req, res) => {
+ const password = req.body.password;
+ const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+
+ //create database entry
+ User.create(userDBEntry, (err, user) => {
+   res.session.username = user.username;
+   res.session.loggedIn = true;
+   res.redirect('/newsfeed')
+ });
+});
+
+
+
+//===============================
+//           Log Out
+//===============================
+router.get('logout', (req, res) => {
+  req.session.destroy((err) => {
+    if(err){
+      res.send('err destroying session')
+    }else{
+      res.redirect('/auth')
+    }
+  }); 
+});
+
+
+
+module.exports = router;
