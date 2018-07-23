@@ -9,6 +9,9 @@ const session        = require('express-session');
 // connection
 require('./db/db')
 
+//===========================
+//    USE MIDDLEWARE
+//===========================
 app.use(bodyParser.urlencoded({extended:false}));
 // app.use(methodOverride('_method'));
 app.use(express.static('public'));
@@ -17,6 +20,7 @@ app.use(session({
   resave: false,///only save when the session object has been modified
   saveUnititialized: false //useful for login sessions, we only want to save when we modift the session
 }));
+
 
 /////////////////////////////////////
 // controllers
@@ -27,9 +31,6 @@ const userController = require('./controllers/auth')
 
 app.use('/post', postController)
 app.use('/auth', userController)
-
-
-
 
 
 app.get('/', (req, res) => {

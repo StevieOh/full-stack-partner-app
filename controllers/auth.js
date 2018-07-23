@@ -55,9 +55,22 @@ userDBEntry.password = password;
  User.create(userDBEntry, (err, user) => {
    res.session.username = user.username;
    res.session.loggedIn = true;
-   res.redirect('/users/index.ejs')
+   res.redirect('users/news_feed')
+
  });
 });
+
+// ==============================
+//        user friends
+// ==============================
+// a friends index page which has a button to follow
+router.get('/', (req, res) => {
+  res.render('users/index.ejs')
+})
+// when button clicks the userid goes into the friends array
+
+// posts index route = timeline = // Posts where id in friends[] 
+// (prob 2 queries 1: get my friends array, 2 get posts whose userid is in that array)
 
 
 
