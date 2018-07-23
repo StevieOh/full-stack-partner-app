@@ -11,14 +11,14 @@ require('./db/db')
 
 // middle Ware
 app.use(methodOverride('_method'))
-app.use(bodyparser.urlencoded({extended:false}))
-app.use((req, res, next) => {
-	if(req.session.logIn === false){
-		res.redirect('/auth/login')
-	} else {
-		next();
-	}
-})
+app.use(bodyParser.urlencoded({extended:false}))
+// app.use((req, res, next) => {
+// 	if(req.session.logIn === false){
+// 		res.redirect('/auth/login')
+// 	} else {
+// 		next();
+// 	}
+// })
 
 /////////////////////////////////////
 // controllers
@@ -28,9 +28,12 @@ const postController = require('./controllers/post');
 app.use('/post', postController)
 
 
-// app.get('/', (req, res) => {
-//   res.send("server works") 
-// })
+// pages
+
+app.get('/feed', (req, res) => {
+	res.render('news_feed.ejs')
+})
+
 
 app.listen(3000, () => {
   console.log("server running on 3000")
