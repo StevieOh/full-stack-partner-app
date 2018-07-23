@@ -27,10 +27,12 @@ app.use(session({
 /////////////////////////////////////
 
 const postController = require('./controllers/post');
-const userController = require('./controllers/auth')
+const authController = require('./controllers/auth');
+const userController = require('./controllers/user')
 
 app.use('/post', postController)
-app.use('/auth', userController)
+app.use('/auth', authController)
+app.use('/user', userController)
 
 
 app.get('/', (req, res) => {
