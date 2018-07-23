@@ -64,8 +64,16 @@ userDBEntry.password = password;
 //        user friends
 // ==============================
 // a friends index page which has a button to follow
-router.get('/', (req, res) => {
-  res.render('users/index.ejs')
+router.get('/index', async (req, res) => {
+  try{
+    const foundUsers = await User.find({});
+    router.render('users/index.ejs', {
+      users: foundUsers,
+      username: req.session.id
+    })
+  }catch(err){
+    res.send(err)
+  }
 })
 // when button clicks the userid goes into the friends array
 
