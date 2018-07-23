@@ -1,11 +1,18 @@
-body{
-  background-color: cyan;
-}
 header{
   border: solid 1px red;
 }
+h3{
+  display: flex;
+  align-self: center;
+  justify-content: flex-start;
+  margin: auto;
+}
 #title{
-  text-align: center
+  margin: auto;
+  font-family: 'Cabin Sketch', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #login{
   display: flex;
@@ -13,14 +20,63 @@ header{
   justify-content: flex-end;
 }
 #register{
+  display: flex;
   border: solid 1px red;
-  justify-content: center;
+  align-content: center;
 }
-h3{
+
+#CrossFade {
+  background: #fff;
   display: flex;
-  justify-content: center;
+  align-items: flex-end;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
 }
-form {
-  display: flex;
-  align-self: center;
+#CrossFade img {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  height: auto;
+  background: #000;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  opacity: 0;
+  -webkit-transform: scale(1.4) rotate(12deg);
+          transform: scale(1.4) rotate(12deg);
+  -webkit-animation: CrossFade 24s infinite;
+          animation: CrossFade 24s infinite;
+}
+#CrossFade img:nth-child(3) {
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+}
+#CrossFade img:nth-child(2) {
+  -webkit-animation-delay: 12s;
+          animation-delay: 12s;
+}
+#CrossFade img:nth-child(1) {
+  -webkit-animation-delay: 18s;
+          animation-delay: 18s;
+}
+
+@-webkit-keyframes CrossFade {
+  25% {
+    opacity: 1;
+    -webkit-transform: scale(1) rotate(0);
+            transform: scale(1) rotate(0);
+  }
+  40% {
+    opacity: 0;
+  }
+}
+@keyframes CrossFade {
+  25% {
+    opacity: 1;
+    -webkit-transform: scale(1) rotate(0);
+            transform: scale(1) rotate(0);
+  }
+  40% {
+    opacity: 0;
+  }
 }

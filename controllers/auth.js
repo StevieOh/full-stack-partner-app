@@ -8,7 +8,7 @@ const bcrypt = require('bcrypt');
 //===============================
 router.get('/',(req, res) => {
  res.render('auth/login.ejs', {
-  // message: req.session.message
+ message: req.session.message
  });
 });
 
@@ -24,7 +24,7 @@ router.post('/login', (req, res) => {
 
       req.session.username = user.username;
       req.session.loggedIn = true;
-      res.redirect('newsfeed');
+      res.redirect('/users/index.ejs');
 
     }else{
       req.session.message = "Username or Password is incorrect"
@@ -44,14 +44,19 @@ router.post('/login', (req, res) => {
 //===============================
 router.post('/register', (req, res) => {
  const password = req.body.password;
- console.log(req.body.password)
+ console.log(req.body.password, "<-----this is req.body password")
  const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+
+const userDBEntry = {};
+userDBEntry.username = req.body.username;
+userDBEntry.password = password;
 
  //create database entry
  User.create(userDBEntry, (err, user) => {
    res.session.username = user.username;
    res.session.loggedIn = true;
    res.redirect('users/news_feed')
+
  });
 });
 
