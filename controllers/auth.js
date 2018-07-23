@@ -24,7 +24,7 @@ router.post('/login', (req, res) => {
 
       req.session.username = user.username;
       req.session.loggedIn = true;
-      res.redirect('/users/index.ejs');
+      res.redirect('users/index.ejs');
 
     }else{
       req.session.message = "Username or Password is incorrect"
@@ -64,17 +64,7 @@ userDBEntry.password = password;
 //        user friends
 // ==============================
 // a friends index page which has a button to follow
-router.get('/index', async (req, res) => {
-  try{
-    const foundUsers = await User.find({});
-    router.render('users/index.ejs', {
-      users: foundUsers,
-      username: req.session.id
-    })
-  }catch(err){
-    res.send(err)
-  }
-})
+
 // when button clicks the userid goes into the friends array
 
 // posts index route = timeline = // Posts where id in friends[] 
