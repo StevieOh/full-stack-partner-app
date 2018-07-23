@@ -1,25 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Obeyims</title>
+  <title>obeyims</title>
   <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
 </head>
 <body>
-
   <header>
-    <h1 id="title">Obeyims</h1>
+    <h1 id="title">obeyims</h1>
     <a id="login" href="/auth">Register</a>
   </header>
 
   <main>
-    <section id="register">
-      <h3>Login</h3><br>
-      <form action="/auth/login" method="POST">
-        Username: <input type="text" name="username">
-        Password:  <input type="password" name="password"><br>
-        <button type=submit>Submit</button>
-      </form>
-    </section>
+    <div class="row">
+      <div class="col-sm-8">
+        <div id="CrossFade">
+          <img src="https://img.aws.livestrongcdn.com/ls-slideshow-main-image/ds-photo/getty/article/225/103/466377933.jpg" alt="img"/>
+          <img src="https://www.faithful-to-nature.co.za/blog/wp-content/uploads/Dollarphotoclub_76084977-1-1000x640.jpg" alt="img"/>
+          <img src="https://www.printbit.com/wp-content/uploads/2017/06/happy-people.jpg" alt="img"/>
+          <img src="https://s3-ap-southeast-2.amazonaws.com/media1.mydeal.com.au/blog/post/blog_image_20180219221810890.jpg" alt="img"/>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <section id="register">
+          <h3>Login</h3><br>
+          <form action="/auth/login" method="POST">
+          Username: <input type="text" name="username"><br>
+           Password: <input type="password" name="password"><br>
+          <button type="submit">Submit</button>
+          </form><br>
+        </section><br><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </div>
   </main>
 
 </body>
