@@ -18,19 +18,31 @@ router.get('/',(req, res) => {
 //        Login Route
 //===============================
 router.post('/login', (req, res) => {
- User.findOne({username:req.body.username}, (err, user) => {
-   if(user){
-    if (bcrypt.compareSync(req.body.password, user.password)) {
+  User.findOne({username: req.body.username}, (err, user) => {
+    if(user){
+      console.log('')
+      console.log('')
+      console.log('')
+      console.log("here's the user we got")
+      console.log(user)
+      console.log('')
+      console.log('')
+      console.log('')
+      console.log('')
+      if (bcrypt.compareSync(req.body.password, user.password)) {
+        console.log("login is good")
+        req.session.username = user.username;
+        req.session.loggedIn = true;
+        res.redirect('users/index.ejs');
 
-      req.session.username = user.username;
-      req.session.loggedIn = true;
-      res.redirect('users/index.ejs');
-
-    }else{
-      req.session.message = "Username or Password is incorrect"
-      res.redirect('/auth');
-    }//end of if(bcrypt)
+      } else { 
+        console.log("user exists but password is wrong")
+        req.session.message = "Username or Password is incorrect"
+        res.redirect('/auth');
+     }//end of if(bcrypt)
+     
    }else{ 
+    console.log("user does not exist")
     req.session.message = "Username or password is incorrect"
     res.redirect('/auth');
    }//end of if(user)
@@ -49,13 +61,13 @@ router.post('/register', (req, res) => {
 
 const userDBEntry = {};
 userDBEntry.username = req.body.username;
-userDBEntry.password = password;
+userDBEntry.password = passwordHash;
 
  //create database entry
  User.create(userDBEntry, (err, user) => {
-   res.session.username = user.username;
-   res.session.loggedIn = true;
-   res.redirect('users/news_feed')
+   req.session.username = user.username;
+   req.session.loggedIn = true;
+   res.redirect('/user/news_feed')
 
  });
 });
