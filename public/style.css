@@ -1,0 +1,26 @@
+body{
+  background-color: cyan;
+}
+header{
+  border: solid 1px red;
+}
+#title{
+  text-align: center
+}
+#login{
+  display: flex;
+  align-self: flex-start;
+  justify-content: flex-end;
+}
+#register{
+  border: solid 1px red;
+  justify-content: center;
+}
+h3{
+  display: flex;
+  justify-content: center;
+}
+form {
+  display: flex;
+  align-self: center;
+}

@@ -8,7 +8,7 @@ const bcrypt = require('bcrypt');
 //===============================
 router.get('/',(req, res) => {
  res.render('auth/login.ejs', {
-  message: req.session.message
+  // message: req.session.message
  });
 });
 
@@ -44,6 +44,7 @@ router.post('/login', (req, res) => {
 //===============================
 router.post('/register', (req, res) => {
  const password = req.body.password;
+ console.log(req.body.password)
  const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 
  //create database entry
