@@ -49,7 +49,7 @@ router.post('/register', (req, res) => {
 
 const userDBEntry = {};
 userDBEntry.username = req.body.username;
-userDBEntry.password = password;
+userDBEntry.password = passwordHash;
 
  //create database entry
  User.create(userDBEntry, (err, user) => {
