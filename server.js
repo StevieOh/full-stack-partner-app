@@ -9,6 +9,11 @@ const session        = require('express-session');
 // connection
 require('./db/db')
 
+// middle Ware
+app.use(methodOverride('_method'))
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(express.static('public'));
+
 /////////////////////////////////////
 // controllers
 /////////////////////////////////////
@@ -20,18 +25,12 @@ app.use('/post', postController)
 app.use('/auth', userController)
 
 
-app.use(bodyParser.urlencoded({extended:false}));
-// app.use(methodOverride('_method'));
-app.use(express.static('public'));
 
 
 app.get('/', (req, res) => {
   res.render("index.ejs") 
 });
 
-// middle Ware
-app.use(methodOverride('_method'))
-app.use(bodyParser.urlencoded({extended:false}))
 
 
 app.listen(3000, () => {
