@@ -43,6 +43,7 @@ app.get('/news_feed', (req, res) => {
 	res.render('news_feed.ejs')
 })
 
+
 app.get('/contact', (req, res) => {
   res.render('contact.ejs')
 })
