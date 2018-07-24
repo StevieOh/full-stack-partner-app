@@ -4,11 +4,19 @@
 	<title>Who would you like to follow?</title>
 </head>
 <body>
-<%=username%>
+
 <body>
 	<header>
 		<h1>Who would you like to follow?</h1>
 	</header>
+
+	<main>
+		<%for (let i = 0; i < users.length; i++) {%>
+			<%= users[i].username %><br> <button <%= users[i].id %>>follow</button>
+		<%}%>
+	</main>
+
+
 
 </body>
 </html>
