@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models/user')
 
 
-router.get('/news_feed', (req, res) => {
+router.get('/index.ejs', (req, res) => {
   res.send('newsfeed') 
 })
 
