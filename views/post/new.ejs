@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Make Post</title>
+</head>
+<body>
+	<header>
+		<h1>
+			New Post
+		</h1>
+		<nav>
+			<h3>
+				<a href="/news_feed">Home</a>
+			</h3>
+		</nav>
+	</header>
+	<main>
+		<form action="/news_feed" method="POST">
+			<input type="text" name="caption"><br>
+			<input type="text" name="photoURL"><br>
+			<textarea name="status"></textarea><br><br>
+			<input type="submit" value="Post">
+		</form>
+	</main>
+</body>
+</html>
