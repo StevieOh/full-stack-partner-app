@@ -6,7 +6,7 @@ const User    = require('../models/user.js')
 
 
 /// posts index route (timeline)
-router.get('/news_feed', (req, res) => {
+router.get('/', (req, res) => {
 	res.render('news_feed.ejs')
 })
 
