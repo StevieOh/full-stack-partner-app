@@ -21,6 +21,7 @@ footer{
   display: flex;
   align-items: flex-end;
 }
+
 #title{
   margin: auto;
   font-family: 'Cabin Sketch', cursive;

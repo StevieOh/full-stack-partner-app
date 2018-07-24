@@ -47,6 +47,9 @@ app.get('/contact', (req, res) => {
   res.render('contact.ejs')
 })
 
+app.get('/about', (req, res) => {
+  res.render('about.ejs')
+})
 app.listen(3000, () => {
   console.log("server running on 3000")
 })
