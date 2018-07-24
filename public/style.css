@@ -7,6 +7,9 @@ h3{
   justify-content: flex-start;
   margin: auto;
 }
+form{
+  margin-right: 15px;
+}
 #title{
   margin: auto;
   font-family: 'Cabin Sketch', cursive;
@@ -14,10 +17,12 @@ h3{
   justify-content: center;
   align-items: center;
 }
+
 #login{
+  margin-top: 50px;
   display: flex;
-  align-self: flex-start;
-  justify-content: flex-end;
+  border: solid 1px red;
+  align-content: center;
 }
 #register{
   display: flex;
