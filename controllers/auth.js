@@ -92,4 +92,13 @@ router.get('logout', (req, res) => {
 
 
 
+//===============================
+//           Contact
+//===============================
+router.get('/',(req, res) => {
+  res.send("contact us")
+  res.redirect('/contact')
+});
+
+
 module.exports = router;
