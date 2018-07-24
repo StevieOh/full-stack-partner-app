@@ -33,14 +33,14 @@ router.post('/login', (req, res) => {
         console.log("login is good")
         req.session.username = user.username;
         req.session.loggedIn = true;
-        res.redirect('users/index.ejs');
+        res.redirect('users/news_feed');
 
       } else { 
         console.log("user exists but password is wrong")
         req.session.message = "Username or Password is incorrect"
         res.redirect('/auth');
      }//end of if(bcrypt)
-     
+
    }else{ 
     console.log("user does not exist")
     req.session.message = "Username or password is incorrect"
