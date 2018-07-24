@@ -7,8 +7,19 @@ h3{
   justify-content: flex-start;
   margin: auto;
 }
+h2{
+  display: flex;
+  align-self: center;
+  justify-content: flex-start;
+  margin: auto;
+}
 form{
   margin-right: 15px;
+}
+footer{
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
 }
 #title{
   margin: auto;

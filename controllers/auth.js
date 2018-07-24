@@ -33,7 +33,9 @@ router.post('/login', (req, res) => {
         console.log("login is good")
         req.session.username = user.username;
         req.session.loggedIn = true;
-        res.redirect('news_feed.ejs');
+
+        res.redirect('/news_feed');
+
 
       } else { 
         console.log("user exists but password is wrong")
@@ -67,7 +69,8 @@ userDBEntry.password = passwordHash;
  User.create(userDBEntry, (err, user) => {
    req.session.username = user.username;
    req.session.loggedIn = true;
-   res.redirect('news_feed.ejs')
+
+   res.redirect('/news_feed')
 
  });
 });
