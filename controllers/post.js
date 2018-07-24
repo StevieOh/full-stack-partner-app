@@ -7,7 +7,7 @@ const User    = require('../models/user.js')
 
 /// posts index route (timeline)
 router.get('/', (req, res) => {
-	res.render('news_feed.ejs')
+	res.render('post/news_feed.ejs')
 })
 
 // New Route
@@ -23,7 +23,7 @@ router.get('/makepost', async (req, res) => {
 	}
 })
 
-// Post Route
+// New Route: Post Route
 router.post('/', async (req, res) => {
 	try{
 		const user = await User.find({'username': req.session.username});

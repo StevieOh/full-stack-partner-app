@@ -34,7 +34,7 @@ router.post('/login', (req, res) => {
         req.session.username = user.username;
         req.session.loggedIn = true;
 
-        res.redirect('/news_feed');
+        res.redirect('/post');
 
 
       } else { 
@@ -70,7 +70,7 @@ userDBEntry.password = passwordHash;
    req.session.username = user.username;
    req.session.loggedIn = true;
 
-   res.redirect('/news_feed')
+   res.redirect('/post')
 
  });
 });
