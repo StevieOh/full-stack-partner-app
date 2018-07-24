@@ -7,8 +7,9 @@ router.get('/index.ejs', (req, res) => {
   res.send('newsfeed') 
 })
 
-
-
+//////////////////////////
+// User Index  Route
+//////////////////////////
 router.get('/index', async (req, res) => {
   try{
     const foundUsers = await User.find({});
@@ -21,6 +22,17 @@ router.get('/index', async (req, res) => {
   }
 })
 
+//////////////////////////
+// User Show Route
+//////////////////////////
+router.get('/userprofile', async (req, res) => {
+  try{
+    const user = await User.find({'username': req.session.username})
+    
+  }catch(err){
+    res.send(err)
+  }
+})
 
 
 module.exports = router
