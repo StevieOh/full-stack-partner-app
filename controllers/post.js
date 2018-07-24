@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
 		const newPost = await Post.create(post)
 		user.post.push(newPost);
 		user.save();
-		res.redirect('news_feed.ejs')
+		res.redirect('/post');
 	}catch(err){
 		res.send(err)
 	}
