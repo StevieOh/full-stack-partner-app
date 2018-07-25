@@ -1,7 +1,7 @@
 const express = require('express');
-const router = express.Router();
-const User = require('../models/user')
-
+const router  = express.Router();
+const User    = require('../models/user')
+const Post    = require('../models/post')
 
 router.use((req, res, next) => {
   console.log("")
@@ -65,9 +65,16 @@ router.get('/userprofile', async (req, res) => {
 // edit user
 //////////////////////////
 
-router.post('/editprofile', async (req, res) => {
+router.get('/editprofile', async (req, res) => {
+  console.log('we are hiting the edit route')
   try{
-    const user = await User.find({'username': req.session.username})
+    const foundUser = await User.find({'username': req.session.username})
+    const foundPosts = await Post.find({})
+    const foundUserPosts = await User.findOne({'posts': req.session.id})
+    res.render('user/edit.ejs', {
+      user: foundUser,
+      post: foundPosts
+    })
   }catch(err){
     res.send(err)
   }
