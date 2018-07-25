@@ -28,6 +28,7 @@ router.get('/index.ejs', (req, res) => {
 //////////////////////////
 // User Index  Route
 //////////////////////////
+
 router.get('/index', async (req, res) => {
   try{
     const foundUsers = await User.find({});
@@ -39,6 +40,7 @@ router.get('/index', async (req, res) => {
     res.send(err)
   }
 })
+
 
 //////////////////////////
 // User Show Route
