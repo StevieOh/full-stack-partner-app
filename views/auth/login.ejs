@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-  <title>Login</title>
-  <link rel="stylesheet" type="text/css" href="/style.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-</head>
-<body>
+<%- include('../partials/header'); -%>
   
+  <div class="loginPage">
+
   <div class="row">
-    <div class="col-sm-12">
-      <h2>Login or Create an Account</h2>
+    <div id="loginTitle" class="col-sm-12">
+      <legend><h2>Login or Create an Account</h2></legend>
     </div>
   </div>
 
@@ -23,6 +17,7 @@
       <button type=submit>Login</button>
       </form>
   </div>
+
   <div class="col-sm-6">
   <h3>Register</h3>
   <form action="/auth/register" method="POST">
@@ -31,6 +26,7 @@
     <button type=submit>Submit</button>
   </form>
 </div>
+</div>
+</div>
 
-</body>
-</html>
+<%- include('../partials/footer'); -%>

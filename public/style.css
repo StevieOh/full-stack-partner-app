@@ -1,6 +1,13 @@
 header{
   border: solid 1px red;
 }
+/*Partials footer*/
+.footer{
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+}
 h3{
   display: flex;
   align-self: center;
@@ -8,19 +15,29 @@ h3{
   margin: auto;
 }
 h2{
-  display: flex;
-  align-self: center;
-  justify-content: flex-start;
-  margin: auto;
+  text-align: center;
+  font-family: 'Cabin Sketch', cursive;
+  height: 150px;
+  vertical-align: 50%;
 }
-form{
-  margin: auto;
-}
+
+/*footer on the index page*/
 footer{
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+.col-sm-6{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  border:1px solid red;
+}
+
+form{
+  margin: auto;
 }
 
 #title{
@@ -29,6 +46,18 @@ footer{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#loginTitle{
+  margin: auto;
+  font-family: 'Cabin Sketch', cursive;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#loginPage{
+  background-image: url(https://steemitimages.com/DQmYHXZFgPYoQtAWgt41wrrjWMCiq3TXGxvS2iBHLEtrSMM/636241591164457028-1447492664_life-6.jpg);
 }
 
 #login{
@@ -43,6 +72,7 @@ footer{
   align-content: center;
 }
 
+/*slide show of images on the welcome/index page*/
 #CrossFade {
   background: #fff;
   display: flex;
@@ -98,7 +128,7 @@ footer{
     opacity: 0;
   }
 }
-
+/*Create a modal to add a new post*/
 .modalPost {
   position: fixed;
   font-family: 'Cabin Sketch', cursive;
