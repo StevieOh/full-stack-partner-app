@@ -43,6 +43,11 @@ router.use((req, res, next) => {
 
 /// posts index route (timeline)
 router.get('/', (req, res) => {
+  	console.log("")
+  	console.log("")
+	console.log("hitting the post get '/' route")
+  	console.log("")
+  	console.log("")
 	res.render('post/news_feed.ejs',{
 		user: req.session.username
 	})
@@ -63,19 +68,23 @@ router.get('/makepost', async (req, res) => {
 
 // New Route: Post Route
 router.post('/', async (req, res) => {
+	console.log("we hit the post route")
 	try{
-		const user = await User.find({'username': req.session.username});
+		const user = await User.findOne({'username': req.session.username});
+
+		console.log(user)
 		const post = {
 			userId: user.id,
 			photoURL: req.body.photoURL,
 			status: req.body.status
 		}
 		const newPost = await Post.create(post)
-		user.post.push(newPost);
-		user.save();
-		console.log(user.post, 'this is user.post')
+		user.posts.push(newPost);
+		const result = await user.save();
+		console.log(user.posts, 'this is user.posts')
 		res.redirect('/post');
 	}catch(err){
+		console.log("error in post post route", err)
 		res.send(err)
 	}
 })
