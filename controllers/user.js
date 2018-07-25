@@ -52,7 +52,7 @@ router.get('/userprofile', async (req, res) => {
     console.log(mainUser, " this is mainUser in the user show route ")
     console.log(req.session.username, " this is req.session.username in user show route")
     console.log(req.session.loggedIn, " this is req.session.loggedIn in user show route")
-    res.render('users/show.ejs', {
+    res.render('user/show.ejs', {
       user: mainUser,
       post: req.session.post
     })

@@ -3,7 +3,6 @@ const router  = express.Router();
 const Post    = require('../models/post.js');
 const User    = require('../models/user.js')
 
-
 // some middleware
 router.use((req, res, next) => {
   console.log("")
@@ -42,15 +41,22 @@ router.use((req, res, next) => {
 
 
 /// posts index route (timeline)
-router.get('/', (req, res) => {
-  	console.log("")
-  	console.log("")
-	console.log("hitting the post get '/' route")
-  	console.log("")
-  	console.log("")
-	res.render('post/news_feed.ejs',{
-		user: req.session.username
+router.get('/', async (req, res) => {
+ //  	console.log("")
+ //  	console.log("")
+	// console.log("hitting the post get '/' route")
+ //  	console.log("")
+ //  	console.log("")
+  	try{
+  		const theUser = await User.find({'username': req.session.username})
+  		console.log(theUser, 'this is theUser')
+  		console.log('this is the username in sessions ', req.session.username)
+		res.render('post/news_feed.ejs',{
+			user: theUser[0]
 	})
+	}catch(err){
+		res.send(err)
+	}
 })
 
 // New Route
