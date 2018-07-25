@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Your Profile</title>
 </head>
 <body>
-
+	<header>
+		<h1>obeyims</h1>
+		<nav>
+			<h3><a href="/post">Home</a></h3>
+			<h3><a href="/logout">Logout</a></h3>
+		</nav>
+	</header>
+	<main>
+		<header>
+			<%= user.username %>
+		</header>
+		<section id="posts">
+			<%= post %>
+		</section>
+	</main>
 </body>
 </html>
