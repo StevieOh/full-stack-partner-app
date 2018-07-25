@@ -1,0 +1,31 @@
+<%- include('partials/header'); -%>
+
+
+
+	<a href="#openModal">Make A Post</a>
+    <div id="openModal" class="modalPost">
+      <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <form action="/news_feed" method="POST">
+        <input type="text" name="caption" placeholder="Post caption"><br>
+        <input type="text" name="photoURL" placeholder="photoURL"><br>
+        <textarea class="modalTextArea"name="status"></textarea>
+        <br><br>
+        <input class="modalSubmit" type="submit" value="Post">
+        </form>
+      </div>
+    </div>
+
+	<main>
+		<h2>Feed</h2>
+		<div id="post">
+			stuff is here
+		</div>
+	</main>
+
+
+
+
+
+  
+ <%- include('partials/footer'); -%>
