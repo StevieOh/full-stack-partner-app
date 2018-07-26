@@ -75,6 +75,7 @@ router.post('/', async (req, res) => {
 		console.log(user)
 		const post = {
 			userId: user.id,
+      caption: req.body.caption,
 			photoURL: req.body.photoURL,
 			status: req.body.status
 		}
