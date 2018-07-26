@@ -49,10 +49,10 @@ router.get('/', async (req, res) => {
  //  	console.log("")
   	try{
   		const theUser = await User.find({'username': req.session.username})
-  		console.log(theUser, 'this is theUser')
-  		console.log('this is the username in sessions ', req.session.username)
+  		const thePost = await Post.find({})
 		res.render('post/news_feed.ejs',{
-			user: theUser[0]
+			user: theUser[0],
+			post: thePost
 	})
 	}catch(err){
 		res.send(err)
