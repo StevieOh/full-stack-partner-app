@@ -20,7 +20,14 @@
 	<main>
 		<h2>Feed</h2>
 		<div id="post">
-			stuff is here
+			
+            <% for (let i = 0; i < post.length; i++) {%>
+            <%= post[i].caption %><br>
+            <%= post[i].photoURL %><br>
+            <%= post[i].status %><br>
+            <%= post[i].date %><br><br>
+        <%}%>
+    
 		</div>
 	</main>
 
