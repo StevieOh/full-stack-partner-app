@@ -22,10 +22,21 @@
 		<div id="post">
 			
             <% for (let i = 0; i < post.length; i++) {%>
-            <%= post[i].caption %><br>
-            <%= post[i].photoURL %><br>
-            <%= post[i].status %><br>
-            <%= post[i].date %><br><br>
+<!-- THIS IS WHERE WE WILL HAVE THE MODALS FOR POSTS -->
+<div class="card mb-3">
+  <img class="card-img-top" src=<%= post[i].photoURL %> alt="Card image cap">
+  <div class="card-body">
+    <%=user.username%>
+    <h5 class="card-title"><%= post[i].caption %></h5>
+    <p class="card-text"><%= post[i].status %></p>
+    <p class="card-text"><small class="text-muted"><%= post[i].date %></small></p>
+  </div>
+<a href="#openModal">See More</a>
+  <div id="openModal" class="modalPost"> 
+    <!-- THIS IS WHAT WILL SHOW WITHIN THE MODAL ONCE IT OPENS -->
+  </div>
+</div>
+
         <%}%>
     
 		</div>
