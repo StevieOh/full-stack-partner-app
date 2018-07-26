@@ -16,7 +16,12 @@
 	</header>
 	<main>
 		<%= foundUser.username %>
-		<%=post%>
+		<% for (let i = 0; i < post.length; i++) {%>
+			<%= post[i].caption %><br>
+			<%= post[i].photoURL %><br>
+			<%= post[i].status %><br>
+			<%= post[i].date %><br><br>
+		<%}%>
 	</main>
 </body>
 </html>

@@ -49,12 +49,12 @@ router.get('/userprofile', async (req, res) => {
   try{
     const foundUser = await User.find({});
     const mainUser = await User.findOne({'username': req.session.username})
-    console.log(mainUser, " this is mainUser in the user show route ")
-    console.log(req.session.username, " this is req.session.username in user show route")
-    console.log(req.session.loggedIn, " this is req.session.loggedIn in user show route")
+    const foundPost = await Post.find({'username': req.session.username})
+    console.log(foundPost, 'this is foundPost');
+    console.log(req.session.username, 'this is req.session.id')
     res.render('user/show.ejs', {
       user: mainUser,
-      post: req.session.post
+      post: foundPost
     })
   }catch(err){
     res.send(err)

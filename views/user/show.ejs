@@ -16,7 +16,14 @@
 			<%= user.username %>
 		</header>
 		<section id="posts">
-			<%= post %>
+			<h3><%= user.username %>'s posts</h3><br>		
+
+			<h4><% for (let i = 0; i < post.length; i++) {%>
+			<%= post[i].caption %><br>
+			<img src="<%= post[i].photoURL %>"><br>
+			<%= post[i].status %><br>
+			<%= post[i].date %><br><br>
+			<%}%></h4>
 		</section>
 		<a href="editprofile">Edit Profile</a>
 	</main>
