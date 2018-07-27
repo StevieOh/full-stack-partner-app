@@ -6,6 +6,8 @@ const mongoose       = require('mongoose');
 const methodOverride = require('method-override');
 const session        = require('express-session');
 
+const PORT = process.env.PORT || 3000;
+
 // connection
 require('./db/db')
 
@@ -51,7 +53,7 @@ app.get('/contact', (req, res) => {
 app.get('/about', (req, res) => {
   res.render('about.ejs')
 })
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("server running on 3000")
 })
 

@@ -8,6 +8,14 @@ header{
   text-align: center;
   bottom: 0;
 }
+.aboutPic{
+  width:100%;
+  height:400px;
+  background-repeat:no-repeat;
+  background-size:cover;
+  overflow: hidden;
+  
+}
 h3{
   display: flex;
   align-self: center;
