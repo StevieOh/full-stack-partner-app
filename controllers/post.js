@@ -72,7 +72,7 @@ router.get('/makepost', async (req, res) => {
 	}
 })
 
-// New Route: Post Route
+// Create Route
 router.post('/', async (req, res) => {
 	console.log("we hit the post route")
 	try{
