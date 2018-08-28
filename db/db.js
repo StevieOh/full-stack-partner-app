@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
-const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/obeyims';
+const mongoUri = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/obeyims";
+
 // create db and connect
-mongoose.connect(mongoUri,{useNewUrlParser: true})
+mongoose.connect(mongoUri, {useNewUrlParser: true})
 
 mongoose.connection.on('connected', () => {
 	console.log('mongoose is connected');

@@ -8,7 +8,10 @@ const session        = require('express-session');
 
 const PORT = process.env.PORT || 3000;
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 29d333bd02484d961eb1aa16a3b438eb5765a162
 // connection
 require('./db/db')
 

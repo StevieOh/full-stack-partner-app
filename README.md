@@ -43,8 +43,8 @@ user should be able to make posts
 posts have timestamps
 
 #Future Rollout
-friends selection page
-App compatibility with QR scanner for adding friends
+• friends selection page
+• App compatibility with QR scanner for adding friends
 
 
 #Contributors
