@@ -18,7 +18,7 @@
 		<%= foundUser.username %>
 		<% for (let i = 0; i < post.length; i++) {%>
 			<%= post[i].caption %><br>
-			<%= post[i].photoURL %><br>
+			<img src="<%= post[i].photoURL %>"><br>
 			<%= post[i].status %><br>
 			<%= post[i].date %><br><br>
 		<%}%>
