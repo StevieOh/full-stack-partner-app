@@ -84,7 +84,8 @@ router.post('/', async (req, res) => {
 			username: user.username,
 			caption: req.body.caption,
 			photoURL: req.body.photoURL,
-			status: req.body.status
+			status: req.body.status,
+      video: req.body.video
 		}
 		const newPost = await Post.create(post)
 		user.posts.push(newPost);
@@ -111,5 +112,3 @@ router.get('/showpost', async (req, res) => {
 
 
 module.exports = router;
-
-

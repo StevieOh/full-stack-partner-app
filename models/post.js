@@ -6,6 +6,7 @@ const postSchema = new mongoose.Schema({
 	caption: String,
 	photoURL: String,
 	status: String,
+	video: String,
 	date: {
 		type: Date,
 		default: Date.now

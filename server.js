@@ -5,13 +5,14 @@ const bodyParser     = require('body-parser');
 const mongoose       = require('mongoose');
 const methodOverride = require('method-override');
 const session        = require('express-session');
-
 const PORT = process.env.PORT || 3000;
+const server = app.listen(PORT, () => {
+  console.log("server running on 3000")
+})
+const io = require('socket.io')(server);
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 29d333bd02484d961eb1aa16a3b438eb5765a162
+
 // connection
 require('./db/db')
 
@@ -34,21 +35,49 @@ app.use(session({
 
 const postController = require('./controllers/post');
 const authController = require('./controllers/auth');
-const userController = require('./controllers/user')
+const userController = require('./controllers/user');
+// const chatController = require('./capstone/index.js')
 
 app.use('/post', postController)
 app.use('/auth', authController)
 app.use('/user', userController)
+// app.use('/chat', chatController)
+
+io.on('connection', (socket) => {
+  console.log('a user connected');
+  socket.on('disconnect', function(){
+    console.log('a user disconnected');
+  })
+});
+
+io.on('connection', (socket) => {
+  socket.on('chat message', (msg) => {
+    console.log('message: ' + msg);
+  });
+});
+
+io.on('connection', (socket) => {
+  socket.broadcast.emit('hi');
+});
+
+io.on('connection', (socket) => {
+  socket.on('chat message', (msg) => {
+    io.emit('chat message', msg)
+  });
+});
 
 
 app.get('/', (req, res) => {
-  res.render("index.ejs") 
+  res.render("index.ejs")
 });
+
+app.get('/chat', (req, res) => {
+  res.render('chat.ejs')
+})
 
 app.get('/news_feed', (req, res) => {
 	res.render('news_feed.ejs')
 })
-
 
 app.get('/contact', (req, res) => {
   res.render('contact.ejs')
@@ -57,7 +86,3 @@ app.get('/contact', (req, res) => {
 app.get('/about', (req, res) => {
   res.render('about.ejs')
 })
-app.listen(PORT, () => {
-  console.log("server running on 3000")
-})
-

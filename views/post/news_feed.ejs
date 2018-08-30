@@ -10,7 +10,8 @@
         <form action="/post" method="POST">
         <input type="text" name="caption" placeholder="Post caption"><br>
         <input type="text" name="photoURL" placeholder="photoURL"><br>
-        <textarea class="modalTextArea"name="status"></textarea>
+				<input type="file" name="video" accept="image/jpeg, image/png"><br>
+        <textarea class="modalTextArea"name="status" placeholder="Make A Status"></textarea>
         <br><br>
         <input class="modalSubmit" type="submit" value="Post">
         </form>
@@ -20,27 +21,28 @@
 	<main>
 		<h2>Feed</h2>
 		<div id="post">
-			
+
             <% for (let i = 0; i < post.length; i++) {%>
 <!-- THIS IS WHERE WE WILL HAVE THE MODALS FOR POSTS -->
 <div class="card mb-3">
 
-  <img class="card-img-top" src="<%= post[i].photoURL %>" alt="Card image cap">
+  <img class="card-img-top" src="<%= post[i].photoURL %>" alt="">
 
   <div class="card-body">
     <%=post[i].username%>
     <h5 class="card-title"><%= post[i].caption %></h5>
     <p class="card-text"><%= post[i].status %></p>
     <p class="card-text"><small class="text-muted"><%= post[i].date %></small></p>
+		// <p class="card-file"><input type="file" name=""
   </div>
 <a href="#openModal">See More</a>
-  <div id="openModal" class="modalPost"> 
+  <div id="openModal" class="modalPost">
     <!-- THIS IS WHAT WILL SHOW WITHIN THE MODAL ONCE IT OPENS -->
   </div>
 </div>
 
         <%}%>
-    
+
 		</div>
 	</main>
 
@@ -51,8 +53,8 @@
 
 <footer>
   <small><span class="copyright">©</span> 2018 (GA Chicago)
-  <br> 
-    Stephanie Obeytek and Eugene Sims 
+  <br>
+    Stephanie Obeytek and Eugene Sims
   <br>
     <a href="/about">About</a>
     •
@@ -60,10 +62,10 @@
     •
     <a href="/">Home</a>
   </small>
-  
+
 
    </footer>
 
-    
+
 </body>
 </html>

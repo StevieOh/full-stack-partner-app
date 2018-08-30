@@ -3,7 +3,7 @@ const User     = require('./user')
 
 
 const friendSchema = new mongoose.Schema({
-	user: User
+	user: String
 })
 
 
